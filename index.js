@@ -19,6 +19,10 @@ const resolvers = {
   }
 }
 
+app.register(require('fastify-cors'), {
+  origin: true
+})
+
 app.register(mercurius, {
   schema,
   resolvers,
@@ -29,4 +33,4 @@ app.get('/ip', async function (request) {
   return request.ip
 })
 
-app.listen(process.env.PORT || 5000, '0.0.0.0')
+app.listen(process.env.PORT || 80, '0.0.0.0')
